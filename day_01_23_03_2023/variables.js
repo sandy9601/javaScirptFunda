@@ -22,3 +22,6 @@ let san-sana="hi" // ! here hyphone not allowed in naming a variable
 let 1sana="sandy" // ! name cannot start with number
 
 // * naming a variable is case sensitive apple is different from APPLE
+
+// ! we cannot use reserved words as varaible names
+// ! use strict 
