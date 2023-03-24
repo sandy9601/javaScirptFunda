@@ -17,9 +17,9 @@ console.log(message)
 
 
 
-let san-sana="hi" // ! here hyphone not allowed in naming a variable
+// let san-sana="hi" // ! here hyphone not allowed in naming a variable
 
-let 1sana="sandy" // ! name cannot start with number
+// let 1sana="sandy" // ! name cannot start with number
 
 // * naming a variable is case sensitive apple is different from APPLE
 
