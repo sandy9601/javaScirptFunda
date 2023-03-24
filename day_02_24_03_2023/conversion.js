@@ -17,3 +17,6 @@ console.log(typeof("2"/"3"))
 console.log(Number(null),Number(undefined))
 // ! numeric conversion null becomes 0 and undefined becomes NaN
 // * true becomes 1 and false becomes 0
+
+
+console.log(null+10)

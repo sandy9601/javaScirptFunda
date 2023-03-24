@@ -19,4 +19,9 @@ console.log("hi"+1+2) //=> here firts one string so remaining operands are also 
 
 
 
+// ! nullish
+console.log(undefined??"sana") // * checks only null || undefined values
+
+
+
 
