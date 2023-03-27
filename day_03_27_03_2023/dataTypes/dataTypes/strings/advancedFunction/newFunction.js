@@ -1,5 +1,4 @@
 
-
 function getName(){
     let name="sandy"
 //let sayMyName=new Function(name,`console.log(${name})`)
