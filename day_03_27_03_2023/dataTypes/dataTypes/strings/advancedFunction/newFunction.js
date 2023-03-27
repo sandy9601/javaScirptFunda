@@ -6,13 +6,13 @@ function getName(){
 function sayMyName(){
     console.log(name)
 }
-return sayMyName
+return sayMyName()
 }
 
-getName()()
+//getName()
 
 let sum= new Function(["a","b"],"return a+b")
-//console.log(sum(1,2))
+console.log(sum(1,2))
 
 // ! here we can able to create a function by using new create with strings
 //! new function dont have access to outer variables it has only access to inner variables
