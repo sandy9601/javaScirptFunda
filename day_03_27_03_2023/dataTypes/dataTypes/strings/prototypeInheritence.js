@@ -9,11 +9,12 @@ let rabbit={
 }
 
 rabbit.__proto__=animal
-console.log(animal.eat)
-rabbit.eat()
+//abbit["eatsGrass"]=false
+console.log(animal.eatsGrass,rabbit.eatsGrass)
+
 
 // console.log(Object.keys(rabbit))
 // console.log(rabbit.eatsGrass)
-for(i in rabbit){
-    console.log(i)
-}
+// for(i in rabbit){
+//     console.log(i)
+// }

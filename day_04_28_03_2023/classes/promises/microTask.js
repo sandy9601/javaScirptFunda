@@ -4,3 +4,5 @@ let promise =new Promise((res,rej)=>{
 .catch((rej)=>console.log(rej))
 
 console.log("after promise but printing before promise")
+let obj={}
+//console.log(Object.getOwnPropertyNames(obj))
