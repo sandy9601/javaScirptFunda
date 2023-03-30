@@ -22,4 +22,4 @@ event.on("sandyEvent", function firstEvent() {
   });
 //console.log(event);
 //event.emit("multipleEvents", c, d); // * we can pass arguments also from friring an event to catching the event
-event.addListener("sandyEvent",()=>console.log("sandyEvent called"))
+//console.log(event.eventNames());
