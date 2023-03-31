@@ -16,4 +16,4 @@ mongoose
   )
   .then(() => console.log("mongodb connected"))
   .catch((err) => console.log(err));
-app.listen(8080 || process.env.port, () => console.log("api running on 8080"));
+app.listen(8081 || process.env.port, () => console.log("api running on 8081"));

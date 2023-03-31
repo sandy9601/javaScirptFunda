@@ -36,6 +36,31 @@ const mobileNumberCheck = await userModel.findOne({mobileNumber:mobileNumber})
 if(mobileNumberCheck){
     return res.status(400).send({status:false,message:"mobile already exist"})
 }
+if(!email) return res.status(400).send({status:false,message:"email is missing or invali"})
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).send({
+      status: false,
+      message: `${email} is not a valid formate  for email`,
+    });
+  }
+
+  const checkEmail = await userModel.findOne({ email: email });
+  if (checkEmail) {
+    return res.status(400).send({
+      status: false,
+      message: `${email} is already used please use another email`,
+    });
+  }
+
+  console.log(isValid(fullName))
+  
+
+  if(!isValid(fullName || !fullName)) return res.status(400).send({status:false,message:"fullName is in invalid formate"})
+  const userNameCheck=await userModel.findOne({userName:userName})
+  if(userName){
+    return res.statua(400).send({status:false,message:"userName already exist change it"})
+  }
+
 
 return res.status(400).send({message:"wait"})
 
