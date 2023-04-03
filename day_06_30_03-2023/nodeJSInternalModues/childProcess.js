@@ -1,4 +1,4 @@
-const {exec,execFile}=require("child_process")
+const {exec,execFile,spawn}=require("child_process")
 
 // exec(`pwd`,(err,data,stderr)=>{
 //     if(err){
@@ -13,3 +13,6 @@ const {exec,execFile}=require("child_process")
 //     }
 // })
 
+const child=spawn("ls",["-lh"])
+
+child.stdout("data",(data)=>console.log(data))
