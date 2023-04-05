@@ -1,5 +1,6 @@
 const { MongoClient } = require("mongodb")
 
+
 const url="mongodb+srv://SandeepDarshanam:9866203258Aa@cluster0.pr0hn.mongodb.net"
 const client =new MongoClient(url)
 //const dbName="albaneroApi"

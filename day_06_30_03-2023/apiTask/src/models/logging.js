@@ -10,13 +10,15 @@ log4js.configure({
   categories: { default: { appenders: ["cheese"], level: "error" } },
 });
 
-const logger = log4js.getLogger("cheese");
-//const pizzaLogger=log4js.getLogger("pizza")
+// const logger = log4js.getLogger("cheese");
+// //const pizzaLogger=log4js.getLogger("pizza")
 
-logger.trace("Entering cheese testing");
-logger.debug("Got cheese.");
-logger.info("Cheese is Comté.");
-logger.warn("Cheese is quite smelly.");
-logger.error("Cheese is too ripe!");
-logger.fatal("Cheese was breeding ground for listeria.");
-logger.fatal("pizza is hot")
+// logger.trace("Entering cheese testing");
+// logger.debug("Got cheese.");
+// logger.info("Cheese is Comté.");
+// logger.warn("Cheese is quite smelly.");
+// logger.error("Cheese is too ripe!");
+// logger.fatal("Cheese was breeding ground for listeria.");
+// logger.fatal("pizza is hot")
+
+
