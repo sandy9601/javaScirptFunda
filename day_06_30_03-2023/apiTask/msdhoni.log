@@ -1,8 +1,0 @@
-[2023-04-05T16:31:38.392] [INFO] createCheck - user created dhoni ms
-[2023-04-05T16:32:12.069] [INFO] updateCheck - userDetails updated mobileNumber,9708971625
-[2023-04-05T16:32:40.177] [INFO] followedCheck -  you are followed  sandeep darshanam ,sandySana,642d1ce8048fd89f8bfb7211
-[2023-04-05T16:33:18.747] [INFO] loginCheck - userId:642d551240b1552b49bcc0e9,userName:msdhoni
-[2023-04-05T16:34:37.499] [INFO] loginCheck - you are logged in userId:642d551240b1552b49bcc0e9,userName:msdhoni
-[2023-04-05T16:36:06.712] [INFO] loginCheck - you are logged in userId:642d551240b1552b49bcc0e9,userName:msdhoni
-[2023-04-05T16:43:47.391] [INFO] loginCheck - you are logged in userId:642d551240b1552b49bcc0e9,userName:msdhoni
-[2023-04-05T16:46:45.489] [INFO] loginCheck - you are logged in userId:642d551240b1552b49bcc0e9,userName:msdhoni
