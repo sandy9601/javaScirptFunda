@@ -21,7 +21,7 @@ const userValidator = async (req, res, next) => {
   let data = req.body;
   const { fullName, userName, mobileNumber, email, password } = data;
   const user = new User(fullName, userName, mobileNumber, email, password);
-  const users = await dbConnect();
+  const albaneroUsers = await dbConnect();
 
   if (!user.isValid(fullName)) {
     return res
@@ -35,7 +35,8 @@ const userValidator = async (req, res, next) => {
       .send({ status: false, message: "userName needs good formate" });
   }
 
-  const userNameCheck = await users.find({ userName: userName }).toArray();
+  const userNameCheck = await albaneroUsers.find({ userName: userName }).toArray();
+  console.log(userNameCheck)
   if (userNameCheck.length > 0) {
     return res
       .status(400)
@@ -50,7 +51,7 @@ const userValidator = async (req, res, next) => {
       message: `mobileNumber ${mobileNumber} is invalid please enter a valid phone number`,
     });
   }
-  const mobileNumberCheck = await users
+  const mobileNumberCheck = await albaneroUsers
     .find({ mobileNumber: mobileNumber })
     .toArray();
   if (mobileNumberCheck.length > 0) {
@@ -69,7 +70,7 @@ const userValidator = async (req, res, next) => {
     });
   }
 
-  const checkEmail = await users.find({ email: email }).toArray();
+  const checkEmail = await albaneroUsers.find({ email: email }).toArray();
   if (checkEmail.length > 0) {
     return res.status(400).send({
       status: false,

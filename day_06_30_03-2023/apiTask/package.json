@@ -19,7 +19,6 @@
     "log4js": "^6.9.1",
     "mocha": "^10.2.0",
     "mongodb": "^5.1.0",
-    "mongoose": "^7.0.3",
-    "nodmeon": "^0.0.1-security"
+    "nodemon": "^2.0.22"
   }
 }
