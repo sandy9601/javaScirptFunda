@@ -17,7 +17,6 @@ let server=app.listen(process.env.port, () => console.log(`api running on ${proc
 
 process.on("SIGINT",()=>{
 console.log("sigint recieved")
-
 server.close(()=>{
     console.log("server is closed")
     process.exit(0)
@@ -29,6 +28,6 @@ process.on("SIGTERM",()=>{
     console.log("SIGTERM recieved")
     process.exit(0)
     })
-    
+
 
    module.exports=server

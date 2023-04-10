@@ -1,6 +1,6 @@
 const express=require("express")
 const router=express.Router()
-const{createUser,getUser,updateUser,followUser,getFollowers,loginApi}=require("../controllers/userController.js")
+const{createUser,getUser,updateUser,followUser,getFollowers,loginApi,deleteUser}=require("../controllers/userController.js")
 
 const {userValidator} =require("../middleware/userValidator.js")
 
@@ -10,6 +10,7 @@ router.patch("/updateUser",updateUser)
 router.put("/followUser",followUser)
 router.get("/getFollowers",getFollowers)
 router.post("/login",loginApi)
+router.delete("/deletUser",deleteUser)
 
 
 

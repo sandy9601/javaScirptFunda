@@ -2,8 +2,6 @@ const fs = require("fs");
 const bcrypt = require("bcrypt");
 const { dbConnect } = require("../models/userModel");
 const log4js = require("log4js")
-
-//const applicationLogger = require("../../index.js");
 const createdUserLoggs = log4js.configure({
   appenders: {
     applicationLog: {
@@ -13,7 +11,6 @@ const createdUserLoggs = log4js.configure({
   categories: { default: { appenders: ["applicationLog"], level: "debug" } }
 })
 const applicationLogger = createdUserLoggs.getLogger("applicationLog")
-
 
 class User {
   constructor(fullName, userName, mobileNumber, email, password) {
@@ -41,7 +38,13 @@ const createUser = async (req, res) => {
     const user = new User(fullName, userName, mobileNumber, email, password);
     const userCreate = await users.insertOne(user);
     applicationLogger.log(`user ${fullName} created `);
+
+    // setTimeout(()=>{
+    //   return res.status(201).send({ message: true, data: userCreate });
+    // },10000)
+
     return res.status(201).send({ message: true, data: userCreate });
+
   } catch (err) {
     applicationLogger.error(err.message);
     return res.status(500).send({ message: false, error: err.message });
@@ -59,13 +62,10 @@ const getUser = async (req, res) => {
     const page = req.query.page || 0;
     const countPerPage = 2;
     const agregatedUserData = await albaneroUsers.aggregate([
-    {$sort:{"timeStamp": -1}}
-     ])
-     .skip(page * countPerPage)
-     .limit(countPerPage)
+      { $sort: { "timeStamp": -1 } }, { $skip: page * countPerPage }, { $limit: countPerPage }
+    ])
       .toArray()
 
-//console.log(agregatedUserData)
 
     applicationLogger.log(`All usersData fecthed`);
 
@@ -89,31 +89,31 @@ const getUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     //const email = req.body.email;
-    const data =req.body
+    const data = req.body
     const users = await dbConnect();
-    const {email ,...Rest}= data
+    const { email, ...Rest } = data
     // console.log(Rest)
-    const {userName , mobileNumber } = Rest
-    const currentUserName = await users.find({userName:userName}).toArray();
+    const { userName, mobileNumber } = Rest
+    const currentUserName = await users.find({ userName: userName }).toArray();
 
     if (currentUserName.length > 0) {
       return res.status(400).send({
         status: false,
-        message: `${userName } already exist use another userName`
+        message: `${userName} already exist use another userName`
       });
     }
 
-const currentUserMobileNumber = await users.find({mobileNumber:mobileNumber}).toArray()
+    const currentUserMobileNumber = await users.find({ mobileNumber: mobileNumber }).toArray()
 
-if (currentUserMobileNumber.length > 0) {
-  return res.status(400).send({
-    status: false,
-    message: `${mobileNumber } already exist use another mobileNumber`
-  });
-}
+    if (currentUserMobileNumber.length > 0) {
+      return res.status(400).send({
+        status: false,
+        message: `${mobileNumber} already exist use another mobileNumber`
+      });
+    }
 
 
-    const updatingUser = await users.updateOne({email:email}, { $set: data });
+    const updatingUser = await users.updateOne({ email: email }, { $set: data });
     applicationLogger.log(
       `userDetails updated ${Object.keys(data)},${Object.values(data)}`
     );
@@ -203,7 +203,7 @@ const followUser = async (req, res) => {
 };
 
 
-
+// getfollowers 
 
 const getFollowers = async (req, res) => {
   try {
@@ -225,6 +225,8 @@ const getFollowers = async (req, res) => {
   }
 };
 
+
+// login user
 
 const loginApi = async (req, res) => {
   try {
@@ -248,6 +250,27 @@ const loginApi = async (req, res) => {
   }
 };
 
+
+// deleting user
+
+const deleteUser = async (req, res) => {
+  try {
+
+    const albaneroUsers = await dbConnect()
+    const updatingFollowers = await albaneroUsers.updateMany({ "following.userEmail": req.body.email }, { $pull: { following: { userEmail: req.body.email } } })
+    if (updatingFollowers.matchedCount == 0) {
+      return res.status(404).send({ status: false, message: "no user exist with this email" })
+    }
+    const deleteUser = await albaneroUsers.deleteOne({ email: req.body.email })
+    applicationLogger.log(`one user deleted `)
+    return res.status(200).send({ status: true, message: "data deleted " })
+  }
+  catch (err) {
+    applicationLogger.error(err.message)
+    return res.status(500).send({ status: false, message: err.message })
+  }
+}
+
 module.exports = {
   createUser,
   getUser,
@@ -255,4 +278,8 @@ module.exports = {
   followUser,
   getFollowers,
   loginApi,
+  deleteUser
 };
+
+
+
