@@ -1,38 +1,79 @@
 const chai=require("chai")
 const {expect,assert} = require("chai")
-
+const server=require("./index.js")
 const chaiHttp =require("chai-http")
+
 
 chai.use(chaiHttp)
 
 
-const server= require("./index.js")
+//describe("ApiTesting" , function(){
+    // it("createUser",async function(){
+    //     let res=await chai.request(server)
+    //     .post("/createUser")
+    //     .send({
+    //         "fullName":"trivikra srinivas",
+    //         "userName":"trivikramSrinivas",
+    //         "mobileNumber":9603989615,
+    //         "email":"trivikramSrinivas@gmail.com",
+    //         "password":"trivikramSrinivas123"
+    //         })
+    //         .set("Content-Type","application/json")
+    //         .set("Accept","application/json")
+    //         expect(res).to.have.status(201)
 
-describe("createApiTest" , function(){
-    it("post",async function(){
-        let res=await chai.request(server)
-        .post("/createUser")
-        .send({
-            "fullName":"amrish puri",
-            "userName":"amrishPuri",
-            "mobileNumber":9603989613,
-            "email":"amrishPuri@gmail.com",
-            "password":"amriPshuri123"
-            })
-            .set("Content-Type","application/json")
-            .set("Accept","application/json")
-            expect(res).to.have.status(201)
-
-    })
+    // })
     
-it("getApi", async function(){
-    const res= await chai.request(server)
-    .get("/getUser")
-
-    expect(res).to.have.status(200)
-})
-
-
-})
+// it("getUsers", async function(){
+//     const res= await chai.request(server)
+//     .get("/getUser")
+//     console.log(res.body.data)
+//     expect(res).to.have.status(200)
+// })
 
 
+// it("followUser",async function(){
+//     const res=await chai.request(server)
+//     .put("/followUser")
+//     .send({
+//         "currentUseremail":"nagAkkineni@gmail.com",
+//         "followingUseremail":"trivikramSrinivas@gmail.com"
+//         })
+//         .set("Content-Type","application/json")
+//         .set("Accept","application/json")
+//         expect(res).to.have.status(400)
+
+// })
+
+// it("getFollowers",async function(){
+//     const res= await chai.request(server)
+//     .get("/getFollowers")
+//     .send({ "email":"nagAkkineni@gmail.com" })
+//     .set("Content_type","application/json")
+//     .set("Accept","application/json")
+//     chai.should()
+//     //console.log(res.body)
+//     res.should.have.property("body")
+//     //expect(res).to.have.status(200)
+// })
+
+// it("updateUser",async function(){
+// const res = await chai.request(server)
+// .patch("/updateUser")
+// .send({
+//     "email":"venkaDaggupati@gmail.com",
+//     "userName":"victoryVenky"
+// })
+// .set("Content-Type","application/json")
+// .set("Accept","application/json")
+// chai.should()
+// res.should.have.property("body")
+
+// })
+
+//})
+
+
+
+
+console.log(new Date())

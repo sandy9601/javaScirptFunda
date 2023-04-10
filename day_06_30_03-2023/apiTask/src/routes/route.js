@@ -6,7 +6,7 @@ const {userValidator} =require("../middleware/userValidator.js")
 
 router.post("/createUser",userValidator,createUser)
 router.get("/getUser",getUser)
-router.put("/updateUser",updateUser)
+router.patch("/updateUser",updateUser)
 router.put("/followUser",followUser)
 router.get("/getFollowers",getFollowers)
 router.post("/login",loginApi)

@@ -1,17 +1,18 @@
 const fs = require("fs");
 const bcrypt = require("bcrypt");
 const { dbConnect } = require("../models/userModel");
-const log4js =require("log4js")
+const log4js = require("log4js")
 
 //const applicationLogger = require("../../index.js");
-const createdUserLoggs=log4js.configure({
-  appenders:{
-  applicationLog:{
-    type:"file",filename:`application.log`
-  }},
-  categories:{default:{appenders:["applicationLog"],level:"debug"}}
+const createdUserLoggs = log4js.configure({
+  appenders: {
+    applicationLog: {
+      type: "file", filename: `application.log`
+    }
+  },
+  categories: { default: { appenders: ["applicationLog"], level: "debug" } }
 })
-const applicationLogger =createdUserLoggs.getLogger("applicationLog")
+const applicationLogger = createdUserLoggs.getLogger("applicationLog")
 
 
 class User {
@@ -49,26 +50,25 @@ const createUser = async (req, res) => {
 
 // * fetching the users data
 
+
+
+
 const getUser = async (req, res) => {
   try {
     const albaneroUsers = await dbConnect();
     const page = req.query.page || 0;
     const countPerPage = 2;
-    // const userData = await albaneroUsers
-    //   .find()
-    //   .skip(page * countPerPage)
-    //   .limit(countPerPage)
-    //   .toArray();
+    const agregatedUserData = await albaneroUsers.aggregate([
+    {$sort:{"timeStamp": -1}}
+     ])
+     .skip(page * countPerPage)
+     .limit(countPerPage)
+      .toArray()
 
-   const agregatedUserData = await albaneroUsers.aggregate([
-        { $group : { name : "$$ROOT"} }
-      ]).skip(page * countPerPage)
-      .limit(countPerPage)
-       .toArray()
+//console.log(agregatedUserData)
 
-  
-    
     applicationLogger.log(`All usersData fecthed`);
+
     return agregatedUserData.length > 0
       ? res.status(200).send({ message: true, data: agregatedUserData })
       : res.status(404).send({ message: false, data: "no User Found" });
@@ -80,30 +80,46 @@ const getUser = async (req, res) => {
 
 
 
+
+
+
+
 // * updatig user
 
 const updateUser = async (req, res) => {
   try {
-    const email = req.query;
-    const data = req.body;
+    //const email = req.body.email;
+    const data =req.body
     const users = await dbConnect();
-    const currentUser = await users.find(data).toArray();
+    const {email ,...Rest}= data
+    // console.log(Rest)
+    const {userName , mobileNumber } = Rest
+    const currentUserName = await users.find({userName:userName}).toArray();
 
-    if (currentUser.length > 0) {
+    if (currentUserName.length > 0) {
       return res.status(400).send({
         status: false,
-        message: `${Object.keys(data)[0]} already exist use another ${
-          Object.keys(data)[0]
-        }`,
+        message: `${userName } already exist use another userName`
       });
     }
-    const updatingUser = await users.updateOne(email, { $set: data });
+
+const currentUserMobileNumber = await users.find({mobileNumber:mobileNumber}).toArray()
+
+if (currentUserMobileNumber.length > 0) {
+  return res.status(400).send({
+    status: false,
+    message: `${mobileNumber } already exist use another mobileNumber`
+  });
+}
+
+
+    const updatingUser = await users.updateOne({email:email}, { $set: data });
     applicationLogger.log(
       `userDetails updated ${Object.keys(data)},${Object.values(data)}`
     );
     return res.send({ message: true, data: updatingUser });
   } catch (err) {
-    erroLogger.error(err.message);
+    applicationLogger.error(err.message);
     return res.status(500).send({ message: false, error: err.message });
   }
 };
@@ -113,9 +129,11 @@ const updateUser = async (req, res) => {
 const followUser = async (req, res) => {
   try {
     const users = await dbConnect();
+    const data = req.body
+    const { currentUseremail, followingUseremail } = data
 
     const currentUser = await users
-      .find({ email: req.query.currentUseremail })
+      .find({ email: currentUseremail })
       .toArray();
 
     if (currentUser.length == 0) {
@@ -123,12 +141,12 @@ const followUser = async (req, res) => {
         .status(404)
         .send({
           status: false,
-          message: `no user found with ${req.query.currentUseremail}`,
+          message: `no user found with ${currentUseremail}`,
         });
     }
 
     const followingUser = await users
-      .find({ email: req.query.followingUseremail })
+      .find({ email: followingUseremail })
       .toArray();
 
 
@@ -137,12 +155,18 @@ const followUser = async (req, res) => {
         .status(404)
         .send({
           status: false,
-          message: `no user found with ${req.query.followingUseremail}`,
+          message: `no user found with ${followingUseremail}`,
         });
     }
 
+    for (following of currentUser[0].following) {
+      if (following.userEmail == followingUseremail) {
+        return res.status(400).send({ status: false, message: "you are already following this user" })
+      }
+    }
+
     const updatingCurrentUser = await users.updateOne(
-      { email: req.query.currentUseremail },
+      { email: currentUseremail },
       {
         $push: {
           following: {
@@ -153,8 +177,9 @@ const followUser = async (req, res) => {
         },
       }
     );
+
     const updatingFollowingentUser = await users.updateOne(
-      { email: req.query.followingUseremail },
+      { email: followingUseremail },
       {
         $push: {
           followers: {
@@ -164,15 +189,20 @@ const followUser = async (req, res) => {
         },
       }
     );
+
     applicationLogger.log(
       `${currentUser[0].fullName} followed ${followingUser[0].fullName}`
     );
-    return res.send({ status: true, data: updatingCurrentUser });
+
+    return res.status(200).send({ status: true, data: updatingCurrentUser });
+
   } catch (err) {
     applicationLogger.error(err.message);
     return res.status(500).send({ status: false, error: err.message });
   }
 };
+
+
 
 
 const getFollowers = async (req, res) => {
@@ -181,13 +211,13 @@ const getFollowers = async (req, res) => {
     const countPerPage = 2;
     const dynamicPageCount = page * 2 + countPerPage;
     const albaneroUsers = await dbConnect();
-const agregatedfollowersData = await albaneroUsers.aggregate([{$match : {email:req.query.email}},{ $group : {_id : "$followers"} }]).toArray()
+    const agregatedfollowersData = await albaneroUsers.aggregate([{ $match: { email: req.body.email } }, { $group: { _id: "$followers" } }]).toArray()
 
     return agregatedfollowersData[0]._id.length > 0
       ? res.send({
-          message: true,
-          data: agregatedfollowersData[0]._id.slice(page * 2, dynamicPageCount),
-        })
+        message: true,
+        data: agregatedfollowersData[0]._id.slice(page * 2, dynamicPageCount),
+      })
       : res.send({ message: false, data: "no followers" });
   } catch (err) {
     applicationLogger.error(err.message);

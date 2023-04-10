@@ -12,7 +12,8 @@ const route = require("./src/routes/route.js");
 
 app.use(bodyparser.json());
 app.use("/", route);
-const server=app.listen(process.env.port, () => console.log(`api running on ${process.env.port} and pid ${process.pid}`));
+
+let server=app.listen(process.env.port, () => console.log(`api running on ${process.env.port} and pid ${process.pid}`));
 
 process.on("SIGINT",()=>{
 console.log("sigint recieved")
@@ -28,5 +29,6 @@ process.on("SIGTERM",()=>{
     console.log("SIGTERM recieved")
     process.exit(0)
     })
+    
 
-   // module.exports={server,applicationLogger}
+   module.exports=server

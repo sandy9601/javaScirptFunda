@@ -28,3 +28,109 @@
 [2023-04-09T12:42:54.252] [INFO] applicationLog - venkat daggupati followed mahesh babu
 [2023-04-09T12:43:22.252] [INFO] applicationLog - nag  akkineni followed mahesh babu
 [2023-04-09T12:52:32.179] [ERROR] applicationLog - agregatedfollowersData[0]._id[0].slice is not a function
+[2023-04-10T10:53:43.036] [INFO] applicationLog - user amrish puri created 
+[2023-04-10T10:54:51.566] [ERROR] applicationLog - The field 'name' must be an accumulator object
+[2023-04-10T10:56:20.779] [INFO] applicationLog - user amrish puri created 
+[2023-04-10T10:56:20.789] [ERROR] applicationLog - The field 'name' must be an accumulator object
+[2023-04-10T10:57:27.140] [ERROR] applicationLog - The field 'name' must be an accumulator object
+[2023-04-10T10:58:15.243] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T10:58:25.510] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T10:59:13.482] [INFO] applicationLog - user amrish puri created 
+[2023-04-10T10:59:13.490] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T11:00:24.726] [INFO] applicationLog - user amrish puri created 
+[2023-04-10T11:00:24.736] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T11:01:28.967] [INFO] applicationLog - user vivek athreya created 
+[2023-04-10T11:01:28.977] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T11:02:31.158] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T11:02:31.167] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T11:09:11.220] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T11:09:24.555] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T11:09:34.674] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T11:12:34.067] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T11:14:08.880] [INFO] applicationLog - nag  akkineni followed trivikra srinivas
+[2023-04-10T11:14:25.351] [INFO] applicationLog - nag  akkineni followed trivikra srinivas
+[2023-04-10T11:15:30.864] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T11:29:00.292] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T11:29:14.788] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T11:29:37.943] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T11:32:25.672] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T11:32:51.571] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T11:33:16.760] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T12:00:54.015] [INFO] applicationLog - mahesh babu followed nag  akkineni
+[2023-04-10T12:03:06.165] [INFO] applicationLog - nag  akkineni followed trivikra srinivas
+[2023-04-10T12:23:17.485] [INFO] applicationLog - userDetails updated email,userName,venkaDaggupati@gmail.com,venkatDaggupati
+[2023-04-10T12:24:21.483] [INFO] applicationLog - userDetails updated email,userName,venkaDaggupati@gmail.com,venkyMama
+[2023-04-10T12:35:01.529] [INFO] applicationLog - userDetails updated email,userName,venkaDaggupati@gmail.com,venkyMama@@
+[2023-04-10T12:35:37.639] [INFO] applicationLog - userDetails updated email,userName,venkaDaggupati@gmail.com,venkyMama
+[2023-04-10T12:37:08.897] [INFO] applicationLog - userDetails updated email,userName,venkaDaggupati@gmail.com,victoryVenky
+[2023-04-10T12:39:18.714] [INFO] applicationLog - userDetails updated email,userName,venkaDaggupati@gmail.com,venkyMama@@
+[2023-04-10T12:44:02.001] [ERROR] applicationLog - unknown top level operator: $in
+[2023-04-10T12:47:55.243] [INFO] applicationLog - userDetails updated email,userName,mobileNumber,venkaDaggupati@gmail.com,venkyMama,9603989601
+[2023-04-10T12:48:11.988] [INFO] applicationLog - userDetails updated email,userName,mobileNumber,venkaDaggupati@gmail.com,venkyMama @@,9603989602
+[2023-04-10T14:38:01.446] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:38:47.021] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:40:01.939] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:40:29.864] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:40:45.672] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:41:04.002] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:55:29.469] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:55:41.381] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T14:55:41.382] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:57:45.810] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:57:45.865] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T14:58:45.892] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T14:58:45.948] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T15:00:07.855] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:00:07.910] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T15:02:01.401] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:02:27.261] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:03:30.874] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:03:30.928] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T15:06:16.580] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T15:09:09.236] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:09:09.291] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T15:12:23.544] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:12:40.529] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:13:00.633] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:13:25.535] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:13:38.163] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:15:19.562] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:15:58.358] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:16:28.192] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:16:37.416] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:16:47.839] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:18:12.123] [ERROR] applicationLog - the $sort key specification must be an object
+[2023-04-10T15:18:55.684] [ERROR] applicationLog - timeStamp is not defined
+[2023-04-10T15:19:29.672] [ERROR] applicationLog - $sort key ordering must be specified using a number or {$meta: 'textScore'}
+[2023-04-10T15:21:51.266] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:22:17.691] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:22:34.544] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:22:43.816] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:23:25.802] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:29:09.025] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:31:06.561] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T15:31:20.101] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:33:01.339] [ERROR] applicationLog - $meta is the only expression supported by $sort right now
+[2023-04-10T15:33:49.504] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:35:38.998] [INFO] applicationLog - user venkat victory created 
+[2023-04-10T15:35:44.000] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:35:58.286] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:36:54.249] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:37:14.012] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:38:08.406] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:38:27.959] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:45:21.773] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:45:27.351] [ERROR] applicationLog - Date.now is not a constructor
+[2023-04-10T15:45:47.589] [INFO] applicationLog - user venkat victory created 
+[2023-04-10T15:46:25.375] [INFO] applicationLog - user vivek athreya created 
+[2023-04-10T15:46:29.757] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:47:01.833] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:48:33.715] [INFO] applicationLog - user mahesh babu created 
+[2023-04-10T15:48:39.577] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:48:45.738] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:48:49.851] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:49:54.925] [INFO] applicationLog - user trivikra srinivas created 
+[2023-04-10T15:50:06.130] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:50:27.964] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:50:55.723] [INFO] applicationLog - All usersData fecthed
+[2023-04-10T15:51:04.432] [INFO] applicationLog - All usersData fecthed
