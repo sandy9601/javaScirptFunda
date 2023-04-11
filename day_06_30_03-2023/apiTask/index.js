@@ -30,4 +30,5 @@ process.on("SIGTERM",()=>{
     })
 
 
+   // console.log(server)
    module.exports=server

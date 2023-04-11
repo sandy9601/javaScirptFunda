@@ -79,6 +79,24 @@ const getUser = async (req, res) => {
 };
 
 
+// getSingleUser
+
+const getSingleUser = async (req, res) => {
+  try {
+    const data = req.body
+    const albaneroUsers = await dbConnect()
+    const singleUser = await albaneroUsers.findOne(data)
+    if (!singleUser) {
+      return res.status(404).send({ status: false, message: "no user exist" })
+    }
+    return res.status(200).send({ status: true, data: singleUser })
+
+  }
+  catch (err) {
+    return res.status(500).send({ status: false, message: err.message })
+  }
+}
+
 
 
 
@@ -245,10 +263,12 @@ const loginApi = async (req, res) => {
     );
     return res.status(200).send({ status: true, message: "login successfull" });
   } catch (err) {
-    applicationLogger.error(err.message);
+           applicationLogger.error(err.message);
     return res.status(500).send({ status: false, error: err });
   }
 };
+
+
 
 
 // deleting user
@@ -278,7 +298,8 @@ module.exports = {
   followUser,
   getFollowers,
   loginApi,
-  deleteUser
+  deleteUser,
+  getSingleUser
 };
 
 
