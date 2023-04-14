@@ -1,0 +1,29 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "\"kibana\"",
+  "main": "y",
+  "scripts": {
+    "test": "\"npm\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandy9601/javaScirptFunda.git"
+  },
+  "keywords": [
+    "\"sandeep\""
+  ],
+  "author": "\"sandy\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandy9601/javaScirptFunda/issues"
+  },
+  "homepage": "https://github.com/sandy9601/javaScirptFunda#readme",
+  "dependencies": {
+    "@elastic/elasticsearch": "7.6",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "log4js": "^6.9.1"
+  }
+}
